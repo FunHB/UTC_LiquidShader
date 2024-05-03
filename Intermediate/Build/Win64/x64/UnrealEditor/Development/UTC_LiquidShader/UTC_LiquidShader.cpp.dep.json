@@ -1,0 +1,22 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "e:\\ue projects\\elixiremporium 5.4\\plugins\\utc_liquidshader\\source\\utc_liquidshader\\private\\utc_liquidshader.cpp",
+        "ProvidedModule": "",
+        "PCH": "e:\\ue projects\\elixiremporium 5.4\\intermediate\\build\\win64\\x64\\elixiremporiumeditor\\development\\unrealed\\sharedpch.unrealed.project.novalfmtstr.valapi.cpp20.inclorderoldest.h.pch",
+        "Includes": [
+            "e:\\ue projects\\elixiremporium 5.4\\plugins\\utc_liquidshader\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\utc_liquidshader\\definitions.utc_liquidshader.h",
+            "e:\\ue projects\\elixiremporium 5.4\\plugins\\utc_liquidshader\\source\\utc_liquidshader\\public\\utc_liquidshader.h",
+            "e:\\epic games\\games\\ue_5.4\\engine\\source\\runtime\\projects\\public\\interfaces\\ipluginmanager.h",
+            "e:\\epic games\\games\\ue_5.4\\engine\\source\\runtime\\projects\\public\\plugindescriptor.h",
+            "e:\\epic games\\games\\ue_5.4\\engine\\source\\runtime\\projects\\public\\custombuildsteps.h",
+            "e:\\epic games\\games\\ue_5.4\\engine\\source\\runtime\\projects\\public\\localizationdescriptor.h",
+            "e:\\epic games\\games\\ue_5.4\\engine\\source\\runtime\\projects\\public\\moduledescriptor.h",
+            "e:\\epic games\\games\\ue_5.4\\engine\\source\\runtime\\projects\\public\\plugindisalloweddescriptor.h",
+            "e:\\epic games\\games\\ue_5.4\\engine\\source\\runtime\\projects\\public\\pluginreferencedescriptor.h",
+            "e:\\epic games\\games\\ue_5.4\\engine\\source\\runtime\\projects\\public\\versescope.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

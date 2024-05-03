@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-UTC_LiquidShaderCS.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"E:\UE Projects\ElixirEmporium 5.4\Intermediate\Build\Win64\x64\ElixirEmporiumEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.NoValFmtStr.ValApi.Cpp20.InclOrderOldest.h.obj"
+"E:\UE Projects\ElixirEmporium 5.4\Plugins\UTC_LiquidShader\Intermediate\Build\Win64\x64\UnrealEditor\Development\UTC_LiquidShaderCS\UTC_LiquidShaderCSManager.cpp.obj"
+"E:\UE Projects\ElixirEmporium 5.4\Plugins\UTC_LiquidShader\Intermediate\Build\Win64\x64\UnrealEditor\Development\UTC_LiquidShaderCS\UTC_LiquidShaderCSModule.cpp.obj"
+"E:\UE Projects\ElixirEmporium 5.4\Plugins\UTC_LiquidShader\Intermediate\Build\Win64\x64\UnrealEditor\Development\UTC_LiquidShaderCS\Default.rc2.res"
+/OUT:"E:\UE Projects\ElixirEmporium 5.4\Plugins\UTC_LiquidShader\Intermediate\Build\Win64\x64\UnrealEditor\Development\UTC_LiquidShaderCS\UnrealEditor-UTC_LiquidShaderCS.lib"

@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "e:\\ue projects\\elixiremporium 5.4\\plugins\\utc_liquidshader\\source\\utc_liquidshader\\private\\utc_lsinterface.cpp",
+        "ProvidedModule": "",
+        "PCH": "e:\\ue projects\\elixiremporium 5.4\\intermediate\\build\\win64\\x64\\elixiremporiumeditor\\development\\unrealed\\sharedpch.unrealed.project.novalfmtstr.valapi.cpp20.inclorderoldest.h.pch",
+        "Includes": [
+            "e:\\ue projects\\elixiremporium 5.4\\plugins\\utc_liquidshader\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\utc_liquidshader\\definitions.utc_liquidshader.h",
+            "e:\\ue projects\\elixiremporium 5.4\\plugins\\utc_liquidshader\\source\\utc_liquidshader\\public\\utc_lsinterface.h",
+            "e:\\ue projects\\elixiremporium 5.4\\plugins\\utc_liquidshader\\intermediate\\build\\win64\\unrealeditor\\inc\\utc_liquidshader\\uht\\utc_lsinterface.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
