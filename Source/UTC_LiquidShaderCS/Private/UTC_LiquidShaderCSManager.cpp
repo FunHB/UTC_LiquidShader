@@ -23,7 +23,7 @@ public:
         SHADER_PARAMETER(float, RotationAngleSin)
 
         SHADER_PARAMETER_ARRAY(FVector4f, SectionRange, [16]) /** <- Max num mat for static mesh */
-        SHADER_PARAMETER_SRV(Buffer<FVector3f>, VertexBuffer)
+        SHADER_PARAMETER_SRV(Buffer<float>, VertexBuffer)
         SHADER_PARAMETER_SRV(Buffer<uint32>, IndexBuffer)
 
         SHADER_PARAMETER_RDG_TEXTURE_UAV(RWTexture2D<FVector4>, OutputTexture)
@@ -90,12 +90,7 @@ void FUTC_LiquidShaderCSManager::Execute_IntersectionRenderThread(FRHICommandLis
             break;
     }
 
-    FRHIViewDesc::FBufferSRV::FInitializer VertexBufferSRV = FRHIViewDesc::CreateBufferSRV();
-    VertexBufferSRV.SetType(FRHIViewDesc::EBufferType::Typed);
-    VertexBufferSRV.SetFormat(EPixelFormat::PF_R32G32B32F);
-    VertexBufferSRV.SetNumElements(PassParameters->NumTotalVertices);
-
-    PassParameters->VertexBuffer = RHICmdList.CreateShaderResourceView(VertexBuffer->PositionVertexBuffer.GetRHI(), VertexBufferSRV);
+    PassParameters->VertexBuffer = VertexBuffer->PositionVertexBuffer.GetSRV();
 
     FRHIViewDesc::FBufferSRV::FInitializer IndexBufferSRV = FRHIViewDesc::CreateBufferSRV();
     IndexBufferSRV.SetType(FRHIViewDesc::EBufferType::Typed);

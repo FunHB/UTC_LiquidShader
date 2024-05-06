@@ -16,7 +16,7 @@ float RotationAngleCos;
 float RotationAngleSin;
 
 /** Buffers */
-Buffer<float3> VertexBuffer;
+Buffer<float> VertexBuffer;
 Buffer<uint> IndexBuffer;
 uint BufferSize;
 uint NumTotalVertices;
@@ -135,13 +135,13 @@ void DrawLine(float2 DrawStart, float2 DrawEnd, float3 FaceNormal)
 }
 
 float3 TransformVertex(float3 LocalPosition)
-{
+{    
     /** Rotate using axis-angle representation https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation */
     return RotationAngleCos * LocalPosition + RotationAngleSin * cross(RotationVector, LocalPosition) + (1 - RotationAngleCos) * dot(RotationVector, LocalPosition) * RotationVector;
 }
 
 void ComputeNormalDirection(float3 Vertices[3], inout float3 NormalDirection)
-{
+{    
     NormalDirection = normalize(cross(Vertices[1] - Vertices[0], Vertices[2] - Vertices[0])) * -1;
 }
 
@@ -163,56 +163,106 @@ bool CheckInSectionRange(int TriangleIndex)
 void MainCS(uint3 ThreadId : SV_DispatchThreadID)
 {
     uint TriangleIndex = ThreadId.x * 9;
+    uint PositionOffsetA, PositionOffsetB, PositionOffsetC;
+    uint PosiitonOffset;
     float3 Normal, IntersectionA, IntersectionB;
     
     float3 Triangle[3];
     
+    PositionOffsetA = IndexBuffer[TriangleIndex] * 3;
+    PositionOffsetB = IndexBuffer[TriangleIndex + 1] * 3;
+    PositionOffsetC = IndexBuffer[TriangleIndex + 2] * 3;
+    
     if (CheckInSectionRange(IndexBuffer[TriangleIndex]))
     {           
-        Triangle[0] = TransformVertex(VertexBuffer[IndexBuffer[TriangleIndex]]);
-        Triangle[1] = TransformVertex(VertexBuffer[IndexBuffer[TriangleIndex + 1]]);
-        Triangle[2] = TransformVertex(VertexBuffer[IndexBuffer[TriangleIndex + 2]]);
+        Triangle[0] = TransformVertex(float3(
+            VertexBuffer[PositionOffsetA],
+            VertexBuffer[PositionOffsetA + 1],
+            VertexBuffer[PositionOffsetA + 2]
+        ));
+        Triangle[1] = TransformVertex(float3(
+            VertexBuffer[PositionOffsetB],
+            VertexBuffer[PositionOffsetB + 1],
+            VertexBuffer[PositionOffsetB + 2]
+        ));
+        Triangle[2] = TransformVertex(float3(
+            VertexBuffer[PositionOffsetC],
+            VertexBuffer[PositionOffsetC + 1],
+            VertexBuffer[PositionOffsetC + 2]
+        ));
         
         if (IsTriangleIntersected(Triangle))
         {
             ComputeNormalDirection(Triangle, Normal);
             PerformIntersection(Triangle, IntersectionA, IntersectionB);
             
-            DrawLine(IntersectionA.xy, IntersectionB.xy, abs(Normal));
+            DrawLine(IntersectionA.xy, IntersectionB.xy, Normal);
         }
     }
     
     TriangleIndex = TriangleIndex + 3;
     
+    PositionOffsetA = IndexBuffer[TriangleIndex] * 3;
+    PositionOffsetB = IndexBuffer[TriangleIndex + 1] * 3;
+    PositionOffsetC = IndexBuffer[TriangleIndex + 2] * 3;
+    
     if (CheckInSectionRange(IndexBuffer[TriangleIndex]))
-    {
-        Triangle[0] = TransformVertex(VertexBuffer[IndexBuffer[TriangleIndex]]);
-        Triangle[1] = TransformVertex(VertexBuffer[IndexBuffer[TriangleIndex + 1]]);
-        Triangle[2] = TransformVertex(VertexBuffer[IndexBuffer[TriangleIndex + 2]]);
+    {   
+        Triangle[0] = TransformVertex(float3(
+            VertexBuffer[PositionOffsetA],
+            VertexBuffer[PositionOffsetA + 1],
+            VertexBuffer[PositionOffsetA + 2]
+        ));
+        Triangle[1] = TransformVertex(float3(
+            VertexBuffer[PositionOffsetB],
+            VertexBuffer[PositionOffsetB + 1],
+            VertexBuffer[PositionOffsetB + 2]
+        ));
+        Triangle[2] = TransformVertex(float3(
+            VertexBuffer[PositionOffsetC],
+            VertexBuffer[PositionOffsetC + 1],
+            VertexBuffer[PositionOffsetC + 2]
+        ));
         
         if (IsTriangleIntersected(Triangle))
         {
             ComputeNormalDirection(Triangle, Normal);
             PerformIntersection(Triangle, IntersectionA, IntersectionB);
             
-            DrawLine(IntersectionA.xy, IntersectionB.xy, abs(Normal));
+            DrawLine(IntersectionA.xy, IntersectionB.xy, Normal);
         }
     }
     
     TriangleIndex = TriangleIndex + 3;
     
+    PositionOffsetA = IndexBuffer[TriangleIndex] * 3;
+    PositionOffsetB = IndexBuffer[TriangleIndex + 1] * 3;
+    PositionOffsetC = IndexBuffer[TriangleIndex + 2] * 3;
+    
     if (CheckInSectionRange(IndexBuffer[TriangleIndex]))
     {
-        Triangle[0] = TransformVertex(VertexBuffer[IndexBuffer[TriangleIndex]]);
-        Triangle[1] = TransformVertex(VertexBuffer[IndexBuffer[TriangleIndex + 1]]);
-        Triangle[2] = TransformVertex(VertexBuffer[IndexBuffer[TriangleIndex + 2]]);
+        Triangle[0] = TransformVertex(float3(
+            VertexBuffer[PositionOffsetA],
+            VertexBuffer[PositionOffsetA + 1],
+            VertexBuffer[PositionOffsetA + 2]
+        ));
+        Triangle[1] = TransformVertex(float3(
+            VertexBuffer[PositionOffsetB],
+            VertexBuffer[PositionOffsetB + 1],
+            VertexBuffer[PositionOffsetB + 2]
+        ));
+        Triangle[2] = TransformVertex(float3(
+            VertexBuffer[PositionOffsetC],
+            VertexBuffer[PositionOffsetC + 1],
+            VertexBuffer[PositionOffsetC + 2]
+        ));
 
         if (IsTriangleIntersected(Triangle))
         {
             ComputeNormalDirection(Triangle, Normal);
             PerformIntersection(Triangle, IntersectionA, IntersectionB);
             
-            DrawLine(IntersectionA.xy, IntersectionB.xy, abs(Normal));
+            DrawLine(IntersectionA.xy, IntersectionB.xy, Normal);
         }
     }
 }

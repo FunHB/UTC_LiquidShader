@@ -83,9 +83,6 @@ private:
 	/** Modify the liquid offset relatively to liquid volume */
 	void AdaptLiquidOffset(FVector2d LastVoxelLayer, FVector2d CurrentVoxelLayer, FVector MinBound, int ZIndex, float DeltaTime, float LastAdaptedLiquidOffset, float ActorZPosition, float VoxelSize);
 
-	/** Run voxelization shader */
-	void Voxelize();
-
 	/** Run cap shader */
 	void EnqueueCS();
 
@@ -94,9 +91,6 @@ private:
 
 	/** Remove SDF instances from root */
 	void RemoveSDF_FromRoot();
-	
-	//debug
-	void DebugLineTrace(FVector Start, FVector End, FColor Color);
 	
 /** ----------------------------------- Editor Variables -----------------------------------*/
 public:
