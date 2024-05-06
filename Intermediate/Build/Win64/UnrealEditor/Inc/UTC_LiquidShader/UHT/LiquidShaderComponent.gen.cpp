@@ -10,6 +10,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeLiquidShaderComponent() {}
 
 // Begin Cross Module References
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FColor();
 ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
 ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
@@ -69,6 +70,26 @@ struct Z_Construct_UClass_ULiquidShaderComponent_Statics
 		{ "ModuleRelativePath", "Public/LiquidShaderComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Only for liquid shader in a BP, set the static mesh component which display the liquid shader" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LiquidFillAmount_MetaData[] = {
+		{ "Category", "LiquidSettings|Liquid" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** Liquid fill amount*/" },
+#endif
+		{ "ModuleRelativePath", "Public/LiquidShaderComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Liquid fill amount" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LiquidColor_MetaData[] = {
+		{ "Category", "LiquidSettings|Liquid" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** Liquid color*/" },
+#endif
+		{ "ModuleRelativePath", "Public/LiquidShaderComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Liquid color" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WavesIntensity_MetaData[] = {
@@ -233,6 +254,8 @@ struct Z_Construct_UClass_ULiquidShaderComponent_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_IncludeMaterials_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_IncludeMaterials;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_LS_StaticMeshComponent;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_LiquidFillAmount;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_LiquidColor;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_WavesIntensity;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_WavesRotationSensitivity;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_WavesOffsetSensitivity;
@@ -264,6 +287,8 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULiquidShaderC
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_IncludeMaterials_Inner = { "IncludeMaterials", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_IncludeMaterials = { "IncludeMaterials", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULiquidShaderComponent, IncludeMaterials), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_IncludeMaterials_MetaData), NewProp_IncludeMaterials_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_LS_StaticMeshComponent = { "LS_StaticMeshComponent", nullptr, (EPropertyFlags)0x001000000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULiquidShaderComponent, LS_StaticMeshComponent), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LS_StaticMeshComponent_MetaData), NewProp_LS_StaticMeshComponent_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_LiquidFillAmount = { "LiquidFillAmount", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULiquidShaderComponent, LiquidFillAmount), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LiquidFillAmount_MetaData), NewProp_LiquidFillAmount_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_LiquidColor = { "LiquidColor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULiquidShaderComponent, LiquidColor), Z_Construct_UScriptStruct_FColor, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LiquidColor_MetaData), NewProp_LiquidColor_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_WavesIntensity = { "WavesIntensity", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULiquidShaderComponent, WavesIntensity), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WavesIntensity_MetaData), NewProp_WavesIntensity_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_WavesRotationSensitivity = { "WavesRotationSensitivity", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULiquidShaderComponent, WavesRotationSensitivity), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WavesRotationSensitivity_MetaData), NewProp_WavesRotationSensitivity_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_WavesOffsetSensitivity = { "WavesOffsetSensitivity", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULiquidShaderComponent, WavesOffsetSensitivity), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WavesOffsetSensitivity_MetaData), NewProp_WavesOffsetSensitivity_MetaData) };
@@ -300,6 +325,8 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ULiquidSh
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_IncludeMaterials_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_IncludeMaterials,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_LS_StaticMeshComponent,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_LiquidFillAmount,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_LiquidColor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_WavesIntensity,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_WavesRotationSensitivity,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULiquidShaderComponent_Statics::NewProp_WavesOffsetSensitivity,
@@ -360,10 +387,10 @@ ULiquidShaderComponent::~ULiquidShaderComponent() {}
 struct Z_CompiledInDeferFile_FID_UE_Projects_ElixirEmporium_5_4_Plugins_UTC_LiquidShader_Source_UTC_LiquidShader_Public_LiquidShaderComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ULiquidShaderComponent, ULiquidShaderComponent::StaticClass, TEXT("ULiquidShaderComponent"), &Z_Registration_Info_UClass_ULiquidShaderComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULiquidShaderComponent), 3161566861U) },
+		{ Z_Construct_UClass_ULiquidShaderComponent, ULiquidShaderComponent::StaticClass, TEXT("ULiquidShaderComponent"), &Z_Registration_Info_UClass_ULiquidShaderComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULiquidShaderComponent), 2457869341U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE_Projects_ElixirEmporium_5_4_Plugins_UTC_LiquidShader_Source_UTC_LiquidShader_Public_LiquidShaderComponent_h_2061445521(TEXT("/Script/UTC_LiquidShader"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE_Projects_ElixirEmporium_5_4_Plugins_UTC_LiquidShader_Source_UTC_LiquidShader_Public_LiquidShaderComponent_h_1078200801(TEXT("/Script/UTC_LiquidShader"),
 	Z_CompiledInDeferFile_FID_UE_Projects_ElixirEmporium_5_4_Plugins_UTC_LiquidShader_Source_UTC_LiquidShader_Public_LiquidShaderComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE_Projects_ElixirEmporium_5_4_Plugins_UTC_LiquidShader_Source_UTC_LiquidShader_Public_LiquidShaderComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

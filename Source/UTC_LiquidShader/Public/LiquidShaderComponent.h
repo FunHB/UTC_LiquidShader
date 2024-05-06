@@ -83,6 +83,9 @@ private:
 	/** Modify the liquid offset relatively to liquid volume */
 	void AdaptLiquidOffset(FVector2d LastVoxelLayer, FVector2d CurrentVoxelLayer, FVector MinBound, int ZIndex, float DeltaTime, float LastAdaptedLiquidOffset, float ActorZPosition, float VoxelSize);
 
+	/** Run voxelization shader */
+	void Voxelize();
+
 	/** Run cap shader */
 	void EnqueueCS();
 
@@ -109,6 +112,14 @@ public:
 	/** Only for liquid shader in a BP, set the static mesh component which display the liquid shader */
 	UPROPERTY(BlueprintReadWrite, Category = "LiquidSettings|Global|Blueprint")
 	UStaticMeshComponent* LS_StaticMeshComponent;
+
+	/** Liquid fill amount*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "LiquidSettings|Liquid")
+	float LiquidFillAmount;
+
+	/** Liquid color*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "LiquidSettings|Liquid")
+	FColor LiquidColor;
 
 	/** The waves' intensity*/
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "LiquidSettings|Waves")
@@ -186,6 +197,9 @@ private:
 
 	/** True if liquid shader is owned by a Blueprint*/
 	bool bBlueprint = false;
+
+	/** Previous Liquid fill amount to calculate time derivative*/
+	float PreviousLiquidFillAmount;
 
 /** ----------------------------------- Side Waves / Liquid Adaptation  -----------------------------------*/
 		/** Actor Rotation*/
